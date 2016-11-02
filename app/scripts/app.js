@@ -24,17 +24,23 @@ app.controller('graphCtrl', function(){
 
 });
 
-app.controller('listCrtl', function(){
+app.controller('listCtrl', function(){
 
 });
 
 // directives
 app.directive('directedGraph', function(){
-
+  return{
+    restrict: 'E', // can only use as an HTML attribute <directed-graph>
+    templateUrl: '../views/directed-graph.view.html'
+  }
 });
 
 app.directive('listView', function(){
-
+  return {
+    restrict: 'E', // can only use as an HTML attribute <list-view>
+    templateUrl: '../views/list-view.html'
+  }
 });
 
 
