@@ -67,6 +67,8 @@ app.directive('directedGraph', ['$log','mockDataService', function($log, mockDat
     var graph_nodes = data.node;
     var graph_edges = data.edge;
 
+    createSvgArrow();
+
     $log.info("nodes data undefined: " + graph_nodes);
     $log.info("links data undefined: " + graph_edges);
 
@@ -76,7 +78,8 @@ app.directive('directedGraph', ['$log','mockDataService', function($log, mockDat
       .data(graph_edges)
       .enter().append('line')
       .attr('stroke', 'black')
-      .attr('stroke-width', 1.5);
+      .attr('stroke-width', 1.5)
+      .style("marker-end",  "url(#suit)") ;// Modified line;
 
     $log.info("links inside init: " + link);
 
@@ -85,7 +88,7 @@ app.directive('directedGraph', ['$log','mockDataService', function($log, mockDat
       .selectAll("circle")
       .data(graph_nodes)
       .enter().append("circle")
-      .attr("r", 20)
+      .attr("r", 15)
       .attr("fill", function (d) {
         return color(d.group);
       })
@@ -127,6 +130,23 @@ app.directive('directedGraph', ['$log','mockDataService', function($log, mockDat
       }
       d.fx = null;
       d.fy = null;
+    }
+
+    function createSvgArrow(){
+      svg.append("defs").selectAll("marker")
+        .data(["suit", "licensing", "resolved"])
+        .enter().append("marker")
+        .attr("id", function(d) { return d; })
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 25)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
+        .style("stroke", "#4679BD")
+        .style("opacity", "0.6");
     }
 
   }

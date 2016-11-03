@@ -22,7 +22,7 @@ angular.module('directedGraphApp')
       data.edge = [
         {source: 'node1', target: 'node2', name: 'type1'},
         {source: 'node1', target: 'node3', name: 'type2'},
-        {source: 'node2', target: 'node2', name: 'type1'},
+        {source: 'node2', target: 'node1', name: 'type3'},
         {source: 'node3', target: 'node4', name: 'type4'}
       ];
 
