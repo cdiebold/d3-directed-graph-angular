@@ -15,6 +15,8 @@ Run `grunt` for building and `grunt serve` for preview. http://localhost:9000 fo
 
 Running `grunt test` will run the unit tests with karma.
 
+best link ever:!!
+http://www.coppelia.io/2014/07/an-a-to-z-of-extra-features-for-the-d3-force-layout/ 
 
 ## Requirements
 
